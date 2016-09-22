@@ -1,0 +1,436 @@
+/*Estilo del body/fondo*/
+body{
+    background-color: #DBAD89;
+    overflow-x: hidden;
+}
+
+/*Estilo del título de la página*/
+h1{
+    color: darkgrey;
+    background-color: #0C3F0E;
+    margin-bottom:0;
+    padding: 0 2%;
+}
+
+/*Estilo del botón para desplegar el formulario*/
+.despliegue{
+    background-color: transparent;
+    border: none;
+    float:left;
+    font-size: .9em;
+}
+
+/***********************************************************/
+/*************** MARCO DEL FORMULARIO Y BOTÓN **************/
+/***********************************************************/
+
+/*Estilo para el fieldset del formulario*/
+.marco {
+    border: 1px solid rgb(190, 211, 214) !important;
+    border-radius: 5px;
+    width: 80%;
+    padding: 0 1em;
+    margin-top:0;
+    margin-bottom: .5em;
+}
+
+/*Estilo para el espacio reservado al botón de reset*/
+legend {
+    text-align: right;
+    width: 30%;
+    padding:0 10px;
+    border-bottom:none;
+    font-size: 1em;
+    color: #555;
+}
+/*Este estilo sólo se aplica para Firefox*/
+@-moz-document url-prefix() {
+    legend {
+        position: relative;
+        top: .5em;
+    }
+}
+
+/*Estilo del botón de reset*/
+#resetear {
+    background-color: #B4C9CC;
+    border-radius: 50%;
+    border: none;
+    padding: 2px 7px;
+    color: red;
+}
+
+/***********************************************************/
+/******************** ESTILOS FORMULARIO *******************/
+/***********************************************************/
+
+/*Contenedor del formulario*/
+#contform {
+    margin-right: -8em;
+    padding:0;
+}
+#contform .form-group {
+    margin: 0 auto;
+}
+
+#contform input {
+    margin: 0 auto;
+}
+#contform label {
+    margin: 0 auto;
+}
+
+/*Estilo por defecto para todos los span (se utilizan para avisos)*/
+span {
+    color: red;
+    font-weight: 600;
+    margin:0;
+    padding:0;
+}
+
+/*Estilo para los span de validación OPCIONAL*/
+#autornull, #anionull, #editorialnull {
+    color: #a8410f;
+}
+
+/*Estilo para los cuadros del formulario*/
+.rebonico{
+    border:solid 1px black;
+}
+
+p {
+    margin: 0;
+    margin-left: 5%;
+}
+
+/***********************************************************/
+/********************* ESTILOS BOTONERA ********************/
+/***********************************************************/
+
+#botones {
+    position: relative;
+    top: 6em;
+}
+
+/*Estilo para botones de la botonera*/
+#botones button{
+    min-width: 10em;
+}
+
+.icono {
+    float: right;
+    margin-right: 1em;
+    color: #ffff99;
+}
+
+/***********************************************************/
+/*********************** ESTILOS TABLA *********************/
+/***********************************************************/
+
+/*Estilo para la fila de la tabla seleccionada*/
+.seleccionado {
+    background-color: #F2A6A3 !important;
+    color: red;
+}
+
+/*Estilo para las celdas del encabezado y las líneas tabla*/
+tr,th{
+    text-align: center;
+    background-color:  #B4C9CC;
+}
+
+/*Estilo para las celdas de las líneas*/
+.linea{
+    background-color:  white;
+}
+
+/*Elementos de paginación*/
+tfoot tr {
+    text-align: center;
+}
+
+/* para que no se vea la columna oculta (sino el espacio que ocupa se ve blanco)*/
+table .sr-only {
+    display: none;
+}
+
+/*Estilo del texto cuando la tabla muestra una busqueda*/
+#busqueda {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/*Estilo para el texto cuando no hay resultado en una búsqueda*/
+#resultado {
+    font-size: 3em;
+    font-weight: bold;
+    color: #a8410f;
+}
+
+/*Estilos de los span de paginación*/
+tfoot span {
+    color: #555;
+}
+
+
+/* Los numeros de la paginación cuando esten seleccionados se le aplica lo siguiente */
+.selectPaginas {
+    color: blue;
+}
+
+/***********************************************************/
+/*********************** ESTILOS AYUDA *********************/
+/***********************************************************/
+
+/*Estilo del botón de ayuda*/
+.ayuda{
+    background-color: transparent;
+    border: none;
+    float:right;
+    font-size: .9em;
+}
+
+/*Estilos de contenedor/ventana de ayuda*/
+#contayuda {
+    display: none ;
+    position: absolute;
+    z-index: 100;
+    background-color: #f3e4d8 ;
+    color: black;
+    text-align:left;
+    width: 86%;
+    height: 95%;
+    margin-top: 2%;
+    margin-left: 7%;
+    border-radius: 1em;
+    border: 2px solid green;
+    box-shadow: 4px 4px 10px #333;
+    padding: 0;
+}
+
+/*Estilo del encabezado de la ayuda*/
+#contayuda nav {
+    border: none;
+    border-radius: .9em .9em 0 0;
+    background-color: green;
+    padding-top: .5em;
+    margin: 0;
+}
+
+/*Estilo del iframe que contiene el texto de ayuda*/
+#myframe {
+    width: 100%;
+    height: 93%;
+    border: none;
+}
+
+/*Estilo del botón de cierre de la ayuda*/
+#exit{
+    color:red;
+    font-size: 1.5em;
+    background-color:white;
+    padding:0;
+    border-radius:50%;
+    max-height: 1em;
+    width: 1em;
+    margin-right: .1em;
+    margin-top: .3em;
+}
+
+/*Colocación del icono dentro del botón exit*/
+#exit i{
+    vertical-align: top;
+}
+
+/*Texto del encabezado de la ayuda*/
+#spanco{
+    color:white;
+    font-size: 1.5em;
+    padding-left: 1em;
+}
+
+/* desactiva la visualizacion offline por defecto */
+.offline-ui {
+  display: none;
+}
+
+/***********************************************************/
+/*********************** MEDIA QUERIES *********************/
+/***********************************************************/
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    /***** CONTENEDOR AYUDA *****/
+    #contayuda {
+        width: 90%;
+        height: 95%;
+        margin-top: 2%;
+        margin-left: 5%;
+        border-radius: 1em;
+    }
+    #myframe {
+        height: 93%;
+        margin-top: -.5em;
+    }
+    #contayuda nav {
+        max-height: 2em;
+    }
+    /* #exit{
+        position: relative;
+        margin: .2em 0 0 0;
+    } */
+    /***** FORMULARIO *****/
+    #contform {
+        position: relative;
+        width: 100%;
+    }
+    label {
+        min-width: 6em;
+    }
+    .marco {
+        width: 80%;
+    }
+    /***** BOTONERA *****/
+    #botones button{
+        min-width: 12em;
+        margin-left: -3em;
+        margin-top: 0;
+    }
+    /***** TABLA *****/
+    article#tabla {
+        position: relative;
+        top: 1.5em;
+    }
+}
+
+@media screen and (max-width: 991px) and (min-width: 769px) {
+    /***** CONTENEDOR AYUDA *****/
+    #contayuda {
+        width: 90%;
+        height: 95%;
+        margin-top: 2%;
+        margin-left: 5%;
+        border-radius: 1em;
+    }
+    #myframe {
+        height: 93%;
+        margin-top: -1.1em;
+    }
+    #contayuda nav {
+        max-height: 2em;
+    }
+    #spanco{
+        padding-left: .2em;
+    }
+    /* #exit{
+        position: relative;
+        margin: .2em 0 0 0;
+    } */
+    /***** FORMULARIO *****/
+    #contform {
+        position: relative;
+        width: 100%;
+    }
+    label {
+        min-width: 6em;
+    }
+    .marco {
+        width: 105%;
+    }
+    /***** BOTONERA *****/
+    #botones {
+        position: relative;
+        top: .2em;
+        text-align: center;
+    }
+    #botones button{
+        /* display: inline-block; */
+        min-width: 20em;
+        margin-left: 5%;
+        margin-top: 0;
+    }
+    /***** TABLA *****/
+    article#tabla {
+        position: relative;
+        top: 1.5em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /***** CABECERA *****/
+    h1 {
+        font-size: 1.8em;
+    }
+    /***** CONTENEDOR AYUDA *****/
+    #contayuda {
+        width: 90%;
+        height: 95%;
+        margin-top: 2%;
+        margin-left: 5%;
+        border-radius: 1em;
+    }
+    #myframe {
+        height: 93%;
+        margin-top: -1.1em;
+    }
+    #contayuda nav {
+        max-height: 1.5em;
+    }
+    #contayuda .navbar-header {
+        padding-top: .5em;
+    }
+    #spanco{
+        font-size: 1.2em;
+        padding-left: .2em;
+    }
+    #exit{
+        margin: -1.1em .1em 0 0;
+    }
+    /***** FORMULARIO *****/
+    #form1{
+        padding-right:0;
+    }
+    .marco {
+        width: 115%;
+        margin-top: .5em;
+    }
+    legend {
+        width: 35%;
+    }
+    /***** BOTONERA *****/
+    #botones {
+        position: relative;
+        padding: 0;
+        text-align: center;
+        top: .2em;
+    }
+    #botones button{
+        display: inline-block;
+        min-width: 18em;
+        margin-left: 2%;
+        margin-bottom: 1em;
+    }
+    /***** TABLA *****/
+    article#tabla{
+        margin-left: -1em !important;
+        margin-right: -1em !important;
+        min-width: 20em !important;
+    }
+}
+
+@media screen and (max-width: 532px) {
+    .marco {
+        width: 115%;
+    }
+    legend {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 395px) {
+    .marco {
+        width: 115%;
+    }
+    legend {
+        width: 70%;
+    }
+}

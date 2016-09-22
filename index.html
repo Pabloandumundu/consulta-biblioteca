@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<!-- Fecha: 05/07/16
+Descripción: Página/aplicación WEB que permite crear, modificar y visualizar una estructura de datos
+Autores: Adrián Arteaga, Juan José Basco, Pablo Andueza, Pablo Garrido, Rubén Álvarez
+Desarrollado con: Sublime Text 3 (editor) y Bootstrap -->
+
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Proyecto Creación de BBDD Equipo 2</title>
+		<meta name="description" content="Ejercicio de creacion de una aplicacion donde se puedan añadir,modificar,borrar o consultar campos con jquery ">
+		<meta name="author" content="Adrián A., Pablo A., Pablo G., Ruben A., Juan B.">
+		<meta name="keywords" content="JQuery,tablas,bootstrap,ejercicio jquery,adrformacion,uf1306,firebase,sweetalert">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- favicon -->
+		<link rel="shortcut icon" href="favicon.ico"/>
+		<!-- CSS's de Bootstrap -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<!-- Enlace al css de la paginación de la tabla -->
+		<link rel="stylesheet" href="css/jTPS.min.css">
+		<!-- Enlace al css de Sweet Alert -->
+  		<link rel="stylesheet" href="bower_components/sweetalert/dist/sweetalert.css">
+  		<!-- Enlace a Fontawesome -->
+  		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	 	<!-- Enlace al CSS de la aplicación -->
+		<link rel="stylesheet" href="css/estilos.css">
+	</head>
+
+	<body>
+
+		<aside id="contayuda">
+			<nav class="navbar navbar-default">
+  				<div class="container-fluid">
+    				<div class="navbar-header">
+    					<span id="spanco">AYUDA DE LA APLICACIÓN</span>
+    				</div>
+      				<button type="button" class="ayuda navbar-right" id="exit" onclick="ocultar();" title="Pulsa para obtener ayuda">
+								<i class="fa fa-times-circle" aria-hidden="true"></i>
+					</button>
+  				</div>
+			</nav>
+			<iframe id="myframe" sandbox="allow-same-origin allow-top-navigation allow-pointer-lock" src="ayuda.html"></iframe>
+		</aside>
+
+		<!-- Este <article> contiene el formulario y la botonera -->
+		<!-- <article class="container"> -->
+		<article>
+			<h1 class="text-center">
+				<!-- Botón de despliegue -->
+				<button type="button" class="despliegue"  title="Pulsa para recoger el formulario" id="btnUpDown">
+					<i class="fa fa-chevron-circle-up" aria-hidden="true" id="despUpDown"></i>
+				</button>
+				Consulta de datos
+				<!-- Botón de ayuda -->
+				<button type="button" class="ayuda" title="Pulsa para obtener ayuda" value="Mostrar" onclick="mostrar();">
+					<i class="fa fa-question-circle" aria-hidden="true"></i>
+				</button>
+			</h1>
+			<br>
+			<div class="container" id="notabla">
+				<!-- Contenedor del formulario -->
+				<div class="row col-lg-10 col-md-10 col-sm-11 col-xs-11" id="contform">
+					<p>Los campos marcados con "<span>*</span>" son obligatorios</p>
+					<!-- Aquí va el formulario -->
+					<form action="#" id="form1" class="form-horizontal" role="form" autocomplete="on">
+						<!-- Marco que envuelve el formulario -->
+						<fieldset class="marco">
+							<!-- Botón para resetear el formulario -->
+							<legend>
+								Reset del formulario
+								<button type="button" id="resetear" title="Borra el formulario y alertas" class="btn disabled">
+									<i  class="fa fa-undo" aria-hidden="true"></i>
+								</button>
+							</legend>
+							<!-- ISBN -->
+							<div class="form-group">
+								<div><label for="isbn" class="col-lg-2 col-md-2 col-sm-2 col-xs-3 control-label">ISBN: <span>*</span></label></div>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+								<input type="text" class="form-control clearable rebonico" name="isbn" id="isbn" maxlength="13" required tabindex="1" placeholder="ISBN de 10 ó 13 dígitos">&nbsp; <span id="isbnnull" class="mensaje"></span><br>
+								</div>
+							</div>
+							<!-- Título -->
+							<div class="form-group">
+								<label for="titulo" class="col-lg-2 col-md-2 col-sm-2 col-xs-3 control-label">Título: <span>*</span></label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+									<input type="text" class="form-control clearable rebonico" name="titulo" id="titulo" placeholder="Ej. La Galatea" required tabindex="2">&nbsp; <span id="titulonull" class="mensaje"></span><br>
+								</div>
+							</div>
+							<!-- Autor -->
+							<div class="form-group">
+								<label for="autor" class="col-lg-2 col-md-2 col-sm-2 col-xs-3 control-label">Autor: </label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+									<input type="text" class="form-control clearable rebonico" name="autor" id="autor" placeholder="Ej. Miguel de Cervantes" tabindex="3">&nbsp; <span id="autornull" class="mensaje"></span><br>
+								</div>
+							</div>
+							<!-- Año de publicación -->
+							<div class="form-group">
+								<label for="anio" class="col-lg-2 col-md-2 col-sm-2 col-xs-3 control-label">Año: </label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+									<input type="text" class="form-control clearable rebonico" name="anio" id="anio" placeholder="Ej. 1591" tabindex="4" maxlength="4">&nbsp; <span id="anionull" class="mensaje"></span><br>
+								</div>
+							</div>
+							<!-- Editorial -->
+							<div class="form-group">
+								<label for="editorial" class="col-lg-2 col-md-2 col-sm-2 col-xs-3 control-label">Editorial: </label>
+								<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+									<input type="text" class="form-control clearable rebonico" name="editorial" id="editorial" placeholder="Ej. Planeta" tabindex="5">&nbsp; <span id="editorialnull" class="mensaje"></span>
+								</div>
+							</div>
+						</fieldset>
+						<!-- Campo ocultado con Bootstrap para recibir el índice que relaciona una línea de la tabla con el array -->
+						<div class="sr-only"><input type="text" id="oculto"></div>
+					</form>
+				</div>
+
+				<!-- Contenedor de la botonera -->
+				<div class="btn-group-vertical row col-lg-2 col-md-2 col-sm-12 col-xs-12" id="botones">
+					<button type="button" class="btn btn-success" id="anadir" tabindex="6" accesskey="a">AÑADIR <span class="icono"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></button>
+					<br>
+					<button type="button" class="btn btn-warning" id="buscar" tabindex="7" accesskey="b">BUSCAR <span class="icono"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></button>
+					<br>
+					<button type="button" class="btn btn-warning" id="modificar" tabindex="8" accesskey="m">MODIFICAR <span class="icono"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></button>
+					<br>
+					<button type="button" class="btn btn-danger" id="quitar" tabindex="9" accesskey="q">BORRAR <span class="icono"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></span></button>
+					<!-- <button type="button" onclick="probartabla();">PRUEBA1</button> -->
+					<!-- <button type="button" onclick="cargaDB();" title="Genera una base de datos automática para pruebas">AUTO BD</button> -->
+					<br>
+				</div>
+			</div>
+		</article>
+
+		<!-- Aquí va la tabla -->
+		<article id="tabla" class="container">
+			<!-- Cuando la tabla es el resultado de una búsqueda se indica con este párrafo -->
+			<p id="busqueda" class="text-center"></p>
+
+			<div class="table-responsive">
+				<table  class="table table-bordered" id="tableta">
+					<thead>
+					<tr>
+						<!-- Los atributos sort dan error en la validación de HTML de W3C pero son necesarios para JavaScript -->
+						<th sort="isbn" title="Click para ordenar por ISBN">ISBN</th>
+						<th sort="titulo" title="Click para ordenar por título">TITULO</th>
+						<th sort="autor" title="Click para ordenar por autor">AUTOR</th>
+						<th sort="anio" title="Click para ordenar por año de publicación">AÑO</th>
+						<th sort="editorial" title="Click para ordenar por editorial">EDITORIAL</th>
+					</tr>
+					</thead>
+					<tbody></tbody>
+					<tfoot class="nav">
+						<tr>
+							<td colspan="5">
+								<!-- <div class="paginationTitle">Página:</div> -->
+								<div class="pagination"></div>
+								<!-- <div class="selectPerPage"></div> -->
+								<div class="status"></div>
+								<div class="filaspPagina">Libros por Página: <span id="filasPagina8" class="selectPaginas">8</span><span id="filasPagina16">16</span><span id="filasPagina32">32</span><span id="filasPagina64">64</span><span id="filasPaginaAll">Todos</span></div>
+							</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</article>
+		<!-- La paginación de la tabla -->
+
+	<!-- Enlace de la aplicación con Firebase (proyecto de Juan)
+	<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyB2GCtvaV3jUWuX8moLUCIOPcpKfEcaBXg",
+    	authDomain: "proyecto-e1.firebaseapp.com",
+    	databaseURL: "https://proyecto-e1.firebaseio.com",
+    	storageBucket: "proyecto-e1.appspot.com",
+  	};
+  	firebase.initializeApp(config);
+	</script> -->
+
+	<!-- Enlace con Firebase (proyecto Pablo G)-->
+	<script src="https://www.gstatic.com/firebasejs/3.2.0/firebase.js"></script>
+	<script>
+  	// Initialize Firebase
+  	var config = {
+    	apiKey: "AIzaSyB2wxNNMjxEcLsxAQ4T0ZrRq5BmOoulUWk",
+    	authDomain: "jimbo2k-ifcd0110.firebaseapp.com",
+    	databaseURL: "https://jimbo2k-ifcd0110.firebaseio.com",
+    	storageBucket: "jimbo2k-ifcd0110.appspot.com",
+  	};
+  	firebase.initializeApp(config);
+	</script>
+
+	<!-- Enlace a JQuery -->
+	<script src="//code.jquery.com/jquery.js"></script>
+	<!-- Enlace al JS de JQuery -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<!-- Enlace al JS de Sweet Alert -->
+	<script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
+	<!-- Js detector de conexion offline/online -->
+	<script src="js/offline.min.js"></script>
+
+	<!-- Enlace al JS de la aplicación -->
+	<script src="js/funciones.js"></script>
+	<!-- Enlace al JS de la paginación de la tabla -->
+	<script src="js/jTPS.js"></script>
+	</body>
+</html>

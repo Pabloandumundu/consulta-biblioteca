@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<!-- Enlace a Fontawesome -->
+  	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/cssayuda.min.css">
+</head>
+<body>
+				<h3>MANEJO DE LA TABLA</h3>
+				<p>La tabla en la parte inferior de la pantalla muestra las entradas/libros almacenados en la base de datos.</p>
+
+				<h4>Paginación de la tabla</h4>
+				<p>La tabla permite visualizar los libros almacenados en páginas (por defecto) o mostrando la lista completa.</p>
+				<p>En la parte inferior de la tabla <strong>el usuario puede elegir los libros que se mostrarán por página (8, 16, 32, 64) o si visualizará la lista completa</strong>.</p>
+				<p>En caso de utilizar paginación se podrá <strong>seleccionar cada página pulsando su botón numerado correspondiente</strong>. Debajo de dichos botones se mostrará una leyenda indicando las entradas que muestra la página.</p>
+
+				<h4>Ordenar entradas de la tabla</h4>
+				<p>Los datos mostrados en la tabla pueden ordenarse alfabéticamente o numéricamente, utilizando como criterio cualquiera de los atributos de los libros (ISBN, título, autor ...).</p>
+				<p>Para ello sólo hay que <strong>hacer click sobre cualquiera de los encabezados de las columnas</strong>. Cada clcik alternará el orden entre ascendente y descendente.</p>
+
+				<h3>MANEJO DEL FORMULARIO</h3>
+				<p>Esta aplicación permite interactuar con la base de datos a través de un formulario con distintos campos situado en la parte superior de la pantalla.</p>
+				<p>Los datos introducidos serán chequeados para comprobar su valided (formatos adecuado, ISBN válidos, campos no vacíos ...) indicando al usuario posibles correcciones debajo de cada campo rellenado. Dichas indicaciones utilizan un código de color: <span style="color: red;">rojo</span> en caso de tratarse de campos obligatorios y <span style="color: #a8410f;">naranja</span> para campos opcionales.</p>
+				<p>Algunas acciones tales como añadir o modificar entradas, <strong>no serán factibles en caso de existir correciones obligatorias</strong>.</p>
+				<h4>Mostrar/ocultar formulario y botonera</h4>
+				<p>En la parte de la izquierda de la aplicación se encuentra un botón (<i class="fa fa-chevron-circle-up" aria-hidden="true"></i>/<i class="fa fa-chevron-circle-down" aria-hidden="true"></i>) que permite ocultar/mostrar el formulario y la botonera. De esta forma se puede visualizar mejor la tabla (al ocultar).</p>
+				<h4>Botón de reset de formulario</h4>
+				<p>El marco del formulario incluye un botón de reset (<i  class="fa fa-undo" aria-hidden="true" style="color: red;"></i>) que al pulsarlo realizará las siguientes acciones:</p>
+				<ul>
+					<li>Borrará el contenido de los campos del formulario.</li>
+					<li>Eliminará cualquier mensaje de corrección.</li>
+					<li>Deshará cualquier selección previa.</li>
+				</ul>
+
+				<h3>AÑADIR ENTRADAS A LA BASE DE DATOS</h3>
+				<ol>
+					<li>El usuario debe rellenar <strong>al menos los campos obligatorios</strong> del formulario (ISBN y título) que permitan identificar los libros.<br>Según rellene los datos la aplicación indicará las pertinentes correcciones sobre la valided de los mismos. <br> &nbsp;</li>
+					<li>Una vez introducidos los datos debe <strong>pulsar el botón <em>AÑADIR</em></strong> para que sean almacenados en la base de datos.<br>Si alguno de los datos obligatorios es incorrecto, la entrada no se alamacenará y se mostrará un mensaje de error con un resumen de los errores a corregir. <br><br><strong>Nota:</strong> el botón <em>AÑADIR</em> no estará disponible en caso de haberse seleccionado una entrada de la tabla.</li>
+				</ol>
+
+				<h3>BÚSQUEDAS EN LA BASE DE DATOS</h3>
+				<p>La aplicación permite realizar consultas de los libros almacenados en la base de datos utilizando los campos del formulario para filtrar las búsquedas. Los pasos a seguir son:</p>
+				<ol>
+					<li>Introducir el término de búsqueda en el campo correspondiente teneindo en cuenta que:<br>
+						<ul>
+							<li>Se pueden introducir términos en más de un campo para mostrar entradas con coincidencias en dichos campos.</li>
+							<li>La búsqueda por términos será parcial y no exacta (p.ej. "<mark>calma</mark>" dará coincidencias con "La <mark>Calma</mark>", "Hitoria de un hombre <mark>calma</mark>do").</li>
+							<li>Se pueden utilizar mayúsculas o minúsculas indistintamente (en el ejemplo anterior "<mark>calma</mark>" muestra coincidencias con "<mark>Calma</mark>" y "<mark>calma</mark>do").</li>
+						</ul>
+						<p><strong>Nota:</strong> el formulario seguirá ofreciendo información sobre la valided de los términos que introduzca el usuario, pero está no afectará a la búsqueda.</p>
+					</li>
+					<li>Una vez introducidos los datos para filtrar la consulta se debe <strong>pulsar el botón <em>BUSCAR</em> para mostrar el resultado</strong>.<br> &nbsp;</li>
+					<li>El botón <em>BUSCAR</em> cambiará a <em>VOLVER</em> de manera que al pulsarlo el usuario retornará al estado anterior a la consulta, mostrando la palicación el listado de entradas de la base de datos.</li>
+				</ol>
+				<p><strong>Nota:</strong> el botón <em>BUSCAR</em> no estará disponible en caso de haberse seleccionado una entrada de la tabla.</p>
+
+				<h3>SELECCIONAR ENTRADAS DE LA TABLA</h3>
+				<p>Las entradas/libros mostradas en la tabla son seleccionables con el fin de poder modificar sus datos o eliminarlas.</p>
+				<p>Para ello hay que <strong>hacer click sobre la línea correspondiente en la tabla</strong>. Una vez hecho esto la línea quedará remarcada y los datos de la misma se cargarán en el formulario. <strong>Un nuevo click en la misma línea o en otra eliminará o cambiará la selección.</strong></p>
+				<p><strong>Nota:</strong> las selecciones funcionan tanto para la tabla general como para las de resultados de búsquedas.</p>
+
+				<h3>MODIFICAR LOS DATOS DE UNA ENTRADA</h3>
+				<p>Para cambiar los satos de un libro almacenado hay que:</p>
+				<ol>
+					<li>Seleccionar el libro en la tabla, sea la general o el resultado de una consulta. <br> &nbsp;</li>
+					<li>Realizar las modificaciones pertinentes en los campos del formulario. <br> &nbsp;</li>
+					<li>Pulsar el botón <strong><em>MODIFICAR</em></strong>. Si los datos obligatorios no son correctos los cambios no se aplicarán y el usuario recibirá un mensaje de error con las correcciones.<br><strong>Aviso:</strong> si antes de pulsar <em>MODIFICAR</em> el usuario cambia la selección, recibirá una mensaje pidiendo confirmación para la nueva selección y advirtiendo que las modificaciones no se aplicarán.</li>
+				</ol>
+				<p><strong>Nota:</strong> el botón <em>MODIFICAR</em> no estará disponible si no hay una selección previa en la tabla.</p>
+
+				<h3>BORRAR ENTRADAS DE LA BASE DE DATOS</h3>
+				<ol>
+					<li>Seleccionar en la tabla, tanto general como de búsqueda, la entrada a borrar.<br> &nbsp;</li>
+					<li>Pulsar el botón <strong><em>BORRAR</em></strong>.<br> &nbsp;</li>
+					<li>El usuario recibirá un mensaje para confirmar la acción y evitar borrados por error.</li>
+				</ol>
+				<p><strong>Nota:</strong> el botón <em>BORRAR</em> no estará disponible si no hay una selección previa en la tabla.</p>
+
+				<h3>USO DE LA APLICACIÓN CON DESCONEXIÓN</h3>
+				<p>Cuando el usuario pierda la conexión de red, la aplicación lo indicará añadiendo a los botones de la misma un icono de advertencia (<i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: yellow;"></i>).</p>
+				<p>Las altas, bajas y modificaciones que realice durante el tiempo que permanezca desconectado quedarán pendientes hasta que recupere la conexión.</p>
+</body>
+</html>

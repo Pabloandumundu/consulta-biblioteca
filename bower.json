@@ -1,0 +1,25 @@
+{
+  "name": "Proyecto E1",
+  "homepage": "",
+  "description": "Practica ifcd0110",
+  "main": "",
+  "authors": [
+    "Adrian Arteaga",
+    "Juan Basco",
+    "Pablo Andueza",
+    "Pablo Garrido",
+    "Ruben Alvarez"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "firebase": "^3.1.0"
+  }
+}
