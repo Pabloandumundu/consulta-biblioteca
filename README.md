@@ -1,5 +1,7 @@
 #Práctica del [IFCD0110](https://www.sepe.es/contenidos/personas/formacion/certificados_de_profesionalidad/pdf/fichasCertificados/IFCD0110_ficha.pdf) : formularios y tablas con JQuery
 
+readme.md por **[Jimbo2k](https://github.com/Jimbo2K/)**
+
 ##Descripción
 La práctica consiste en la creación de una estructura de datos con las siguientes funcionalidades:
 
